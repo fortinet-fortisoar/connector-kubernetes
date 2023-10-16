@@ -1,0 +1,1059 @@
+{
+  "type": "workflow_collections",
+  "data": [
+    {
+      "uuid": "fa253cab-0d45-4bd5-b966-52dae1a1843c",
+      "@type": "WorkflowCollection",
+      "name": "Sample - Kubernetes - 1.0.0",
+      "description": "Kubernetes, also known as K8s, is an open-source system for automating deployment, scaling, and management of containerized applications.",
+      "visible": true,
+      "image": null,
+      "recordTags": [
+        "Kubernetes",
+        "kubernetes"
+      ],
+      "workflows": [
+        {
+          "@type": "Workflow",
+          "uuid": "f2fc09b0-2e90-4079-a030-55cafab03c0f",
+          "collection": "/api/3/workflow_collections/fa253cab-0d45-4bd5-b966-52dae1a1843c",
+          "triggerLimit": null,
+          "description": "Deploys the manifest file in your K8s cluster",
+          "name": "Apply YAML File",
+          "tag": "#Kubernetes",
+          "recordTags": [
+            "Kubernetes",
+            "kubernetes"
+          ],
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "parameters": [],
+          "synchronous": false,
+          "triggerStep": "/api/3/workflow_steps/43ba8cc2-3ede-4331-9bf5-ef685654295e",
+          "steps": [
+            {
+              "uuid": "43ba8cc2-3ede-4331-9bf5-ef685654295e",
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "route": "49bc93ab-908f-47e7-8713-3604758dc32a",
+                "title": "Kubernetes: Apply YAML File",
+                "resources": [
+                  "alerts"
+                ],
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "records": "{{vars.input.records[0]}}"
+                  }
+                },
+                "singleRecordExecution": false,
+                "noRecordExecution": true,
+                "executeButtonText": "Execute"
+              },
+              "left": "20",
+              "top": "20",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a"
+            },
+            {
+              "uuid": "f1f0b2be-5040-426c-a31c-b57bd2b12457",
+              "@type": "WorkflowStep",
+              "name": "Apply YAML File",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "name": "Kubernetes",
+                "config": "''",
+                "params": [],
+                "version": "1.0.0",
+                "connector": "kubernetes",
+                "operation": "apply_yml_file",
+                "operationTitle": "Apply YAML File",
+                "step_variables": {
+                  "output_data": "{{vars.result}}"
+                }
+              },
+              "left": "188",
+              "top": "120",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671"
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "uuid": "2e064031-dd32-46f0-848d-55a17946a24d",
+              "label": null,
+              "isExecuted": false,
+              "name": "Start-> Apply YAML File",
+              "sourceStep": "/api/3/workflow_steps/43ba8cc2-3ede-4331-9bf5-ef685654295e",
+              "targetStep": "/api/3/workflow_steps/f1f0b2be-5040-426c-a31c-b57bd2b12457"
+            }
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "uuid": "7b69d24e-dbf8-4a9a-9126-c871bc26205a",
+          "collection": "/api/3/workflow_collections/fa253cab-0d45-4bd5-b966-52dae1a1843c",
+          "triggerLimit": null,
+          "description": "Retrieves all pods present in a namespace.",
+          "name": "Get Namespace Pods List",
+          "tag": "#Kubernetes",
+          "recordTags": [
+            "Kubernetes",
+            "kubernetes"
+          ],
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "parameters": [],
+          "synchronous": false,
+          "triggerStep": "/api/3/workflow_steps/e093db80-e1ea-447c-967b-4e151b63ba1a",
+          "steps": [
+            {
+              "uuid": "e093db80-e1ea-447c-967b-4e151b63ba1a",
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "route": "c7ad278d-fb52-4d51-b251-d1b9a5dea539",
+                "title": "Kubernetes: Get Namespace Pods List",
+                "resources": [
+                  "alerts"
+                ],
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "records": "{{vars.input.records[0]}}"
+                  }
+                },
+                "singleRecordExecution": false,
+                "noRecordExecution": true,
+                "executeButtonText": "Execute"
+              },
+              "left": "20",
+              "top": "20",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a"
+            },
+            {
+              "uuid": "04f3470e-0f3f-469d-80f3-5182fee1e379",
+              "@type": "WorkflowStep",
+              "name": "Get Namespace Pods List",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "name": "Kubernetes",
+                "config": "''",
+                "params": [],
+                "version": "1.0.0",
+                "connector": "kubernetes",
+                "operation": "list_namespaced_pod",
+                "operationTitle": "Get Namespace Pods List",
+                "step_variables": {
+                  "output_data": "{{vars.result}}"
+                }
+              },
+              "left": "188",
+              "top": "120",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671"
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "uuid": "afbcb0da-bab7-4b16-94d7-850dc7545594",
+              "label": null,
+              "isExecuted": false,
+              "name": "Start-> Get Namespace Pods List",
+              "sourceStep": "/api/3/workflow_steps/e093db80-e1ea-447c-967b-4e151b63ba1a",
+              "targetStep": "/api/3/workflow_steps/04f3470e-0f3f-469d-80f3-5182fee1e379"
+            }
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "uuid": "5f421b03-41f0-4da9-a74c-f46e14ba0cd1",
+          "collection": "/api/3/workflow_collections/fa253cab-0d45-4bd5-b966-52dae1a1843c",
+          "triggerLimit": null,
+          "description": "Retrieves all the pods from all namespaces.",
+          "name": "Get Pod For All Namespaces",
+          "tag": "#Kubernetes",
+          "recordTags": [
+            "Kubernetes",
+            "kubernetes"
+          ],
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "parameters": [],
+          "synchronous": false,
+          "triggerStep": "/api/3/workflow_steps/7bf87a97-a0e8-4929-966b-39f9f607f659",
+          "steps": [
+            {
+              "uuid": "7bf87a97-a0e8-4929-966b-39f9f607f659",
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "route": "d6138dc9-fc4b-4dfb-87fe-6be9ffe4a75c",
+                "title": "Kubernetes: Get Pod For All Namespaces",
+                "resources": [
+                  "alerts"
+                ],
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "records": "{{vars.input.records[0]}}"
+                  }
+                },
+                "singleRecordExecution": false,
+                "noRecordExecution": true,
+                "executeButtonText": "Execute"
+              },
+              "left": "20",
+              "top": "20",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a"
+            },
+            {
+              "uuid": "6a7f0071-d3dd-4f3f-8917-8b69c462d2ae",
+              "@type": "WorkflowStep",
+              "name": "Get Pod For All Namespaces",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "name": "Kubernetes",
+                "config": "''",
+                "params": [],
+                "version": "1.0.0",
+                "connector": "kubernetes",
+                "operation": "list_pod_for_all_namespaces",
+                "operationTitle": "Get Pod For All Namespaces",
+                "step_variables": {
+                  "output_data": "{{vars.result}}"
+                }
+              },
+              "left": "188",
+              "top": "120",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671"
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "uuid": "112b8e8a-f375-441f-aa6e-ba9b8a24a032",
+              "label": null,
+              "isExecuted": false,
+              "name": "Start-> Get Pod For All Namespaces",
+              "sourceStep": "/api/3/workflow_steps/7bf87a97-a0e8-4929-966b-39f9f607f659",
+              "targetStep": "/api/3/workflow_steps/6a7f0071-d3dd-4f3f-8917-8b69c462d2ae"
+            }
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "uuid": "c2d64666-7fb4-4588-a66e-fd5a46dc53c5",
+          "collection": "/api/3/workflow_collections/fa253cab-0d45-4bd5-b966-52dae1a1843c",
+          "triggerLimit": null,
+          "description": "Retrieves the logs of a pod based on the namespace and pod name specified",
+          "name": "Get Pod logs",
+          "tag": "#Kubernetes",
+          "recordTags": [
+            "Kubernetes",
+            "kubernetes"
+          ],
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "parameters": [],
+          "synchronous": false,
+          "triggerStep": "/api/3/workflow_steps/cc848eec-3966-40f3-88a7-2a3e2855d0a2",
+          "steps": [
+            {
+              "uuid": "cc848eec-3966-40f3-88a7-2a3e2855d0a2",
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "route": "fa91de7f-3614-4193-810a-8e71ac045cfc",
+                "title": "Kubernetes: Get Pod logs",
+                "resources": [
+                  "alerts"
+                ],
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "records": "{{vars.input.records[0]}}"
+                  }
+                },
+                "singleRecordExecution": false,
+                "noRecordExecution": true,
+                "executeButtonText": "Execute"
+              },
+              "left": "20",
+              "top": "20",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a"
+            },
+            {
+              "uuid": "d2558c01-1e39-4b1f-8cb4-34573e52180b",
+              "@type": "WorkflowStep",
+              "name": "Get Pod logs",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "name": "Kubernetes",
+                "config": "''",
+                "params": [],
+                "version": "1.0.0",
+                "connector": "kubernetes",
+                "operation": "get_pod_logs",
+                "operationTitle": "Get Pod logs",
+                "step_variables": {
+                  "output_data": "{{vars.result}}"
+                }
+              },
+              "left": "188",
+              "top": "120",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671"
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "uuid": "9f3a9b8b-890e-414c-869b-818066bce918",
+              "label": null,
+              "isExecuted": false,
+              "name": "Start-> Get Pod logs",
+              "sourceStep": "/api/3/workflow_steps/cc848eec-3966-40f3-88a7-2a3e2855d0a2",
+              "targetStep": "/api/3/workflow_steps/d2558c01-1e39-4b1f-8cb4-34573e52180b"
+            }
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "uuid": "0f7fc4a7-8c55-4501-8a5a-c989405851b8",
+          "collection": "/api/3/workflow_collections/fa253cab-0d45-4bd5-b966-52dae1a1843c",
+          "triggerLimit": null,
+          "description": "Deletes a pod present in a namespace",
+          "name": "Delete Namespace Pods",
+          "tag": "#Kubernetes",
+          "recordTags": [
+            "Kubernetes",
+            "kubernetes"
+          ],
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "parameters": [],
+          "synchronous": false,
+          "triggerStep": "/api/3/workflow_steps/62f2414f-e0d9-464f-9c03-e6685792ca51",
+          "steps": [
+            {
+              "uuid": "62f2414f-e0d9-464f-9c03-e6685792ca51",
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "route": "c9d064d3-9469-42c9-aa60-825d900e2848",
+                "title": "Kubernetes: Delete Namespace Pods",
+                "resources": [
+                  "alerts"
+                ],
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "records": "{{vars.input.records[0]}}"
+                  }
+                },
+                "singleRecordExecution": false,
+                "noRecordExecution": true,
+                "executeButtonText": "Execute"
+              },
+              "left": "20",
+              "top": "20",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a"
+            },
+            {
+              "uuid": "d90ee901-0854-4a22-9a29-156f1e6ba24a",
+              "@type": "WorkflowStep",
+              "name": "Delete Namespace Pods",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "name": "Kubernetes",
+                "config": "''",
+                "params": [],
+                "version": "1.0.0",
+                "connector": "kubernetes",
+                "operation": "delete_namespaced_pod",
+                "operationTitle": "Delete Namespace Pods",
+                "step_variables": {
+                  "output_data": "{{vars.result}}"
+                }
+              },
+              "left": "188",
+              "top": "120",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671"
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "uuid": "8713270b-d261-4453-a10a-422904718c34",
+              "label": null,
+              "isExecuted": false,
+              "name": "Start-> Delete Namespace Pods",
+              "sourceStep": "/api/3/workflow_steps/62f2414f-e0d9-464f-9c03-e6685792ca51",
+              "targetStep": "/api/3/workflow_steps/d90ee901-0854-4a22-9a29-156f1e6ba24a"
+            }
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "uuid": "cea6f0a0-4741-442a-b43b-8b2bb161efef",
+          "collection": "/api/3/workflow_collections/fa253cab-0d45-4bd5-b966-52dae1a1843c",
+          "triggerLimit": null,
+          "description": "Deletes all pods present in a namespace",
+          "name": "Delete Collection Namespace Pods",
+          "tag": "#Kubernetes",
+          "recordTags": [
+            "Kubernetes",
+            "kubernetes"
+          ],
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "parameters": [],
+          "synchronous": false,
+          "triggerStep": "/api/3/workflow_steps/7995fa8e-dd85-495a-b39d-89a1cf3612b1",
+          "steps": [
+            {
+              "uuid": "7995fa8e-dd85-495a-b39d-89a1cf3612b1",
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "route": "eae7b2f6-7893-4ffb-a6a7-372a2c25d47e",
+                "title": "Kubernetes: Delete Collection Namespace Pods",
+                "resources": [
+                  "alerts"
+                ],
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "records": "{{vars.input.records[0]}}"
+                  }
+                },
+                "singleRecordExecution": false,
+                "noRecordExecution": true,
+                "executeButtonText": "Execute"
+              },
+              "left": "20",
+              "top": "20",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a"
+            },
+            {
+              "uuid": "c194d089-de7e-46e1-808f-b95f928fcd30",
+              "@type": "WorkflowStep",
+              "name": "Delete Collection Namespace Pods",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "name": "Kubernetes",
+                "config": "''",
+                "params": [],
+                "version": "1.0.0",
+                "connector": "kubernetes",
+                "operation": "delete_collection_namespaced_pod",
+                "operationTitle": "Delete Collection Namespace Pods",
+                "step_variables": {
+                  "output_data": "{{vars.result}}"
+                }
+              },
+              "left": "188",
+              "top": "120",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671"
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "uuid": "9ffd8f0e-47a9-4c06-aef1-91c0fbca8c1d",
+              "label": null,
+              "isExecuted": false,
+              "name": "Start-> Delete Collection Namespace Pods",
+              "sourceStep": "/api/3/workflow_steps/7995fa8e-dd85-495a-b39d-89a1cf3612b1",
+              "targetStep": "/api/3/workflow_steps/c194d089-de7e-46e1-808f-b95f928fcd30"
+            }
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "uuid": "0fdd168b-73ba-4cb0-b3a9-cb3d0e916161",
+          "collection": "/api/3/workflow_collections/fa253cab-0d45-4bd5-b966-52dae1a1843c",
+          "triggerLimit": null,
+          "description": "Deletes all secrets present in a namespace",
+          "name": "Delete Collection Namespace Secret",
+          "tag": "#Kubernetes",
+          "recordTags": [
+            "Kubernetes",
+            "kubernetes"
+          ],
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "parameters": [],
+          "synchronous": false,
+          "triggerStep": "/api/3/workflow_steps/c903d9ba-8731-48b6-b29f-70ae09a25e0f",
+          "steps": [
+            {
+              "uuid": "c903d9ba-8731-48b6-b29f-70ae09a25e0f",
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "route": "27b3d02c-78ae-4b5f-8b64-55ac586f8e12",
+                "title": "Kubernetes: Delete Collection Namespace Secret",
+                "resources": [
+                  "alerts"
+                ],
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "records": "{{vars.input.records[0]}}"
+                  }
+                },
+                "singleRecordExecution": false,
+                "noRecordExecution": true,
+                "executeButtonText": "Execute"
+              },
+              "left": "20",
+              "top": "20",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a"
+            },
+            {
+              "uuid": "d5ee00f2-e881-4f05-96e1-4e66b4d06205",
+              "@type": "WorkflowStep",
+              "name": "Delete Collection Namespace Secret",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "name": "Kubernetes",
+                "config": "''",
+                "params": [],
+                "version": "1.0.0",
+                "connector": "kubernetes",
+                "operation": "delete_collection_namespaced_secret",
+                "operationTitle": "Delete Collection Namespace Secret",
+                "step_variables": {
+                  "output_data": "{{vars.result}}"
+                }
+              },
+              "left": "188",
+              "top": "120",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671"
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "uuid": "0ff249b1-07eb-44d4-8589-67ac44258f4e",
+              "label": null,
+              "isExecuted": false,
+              "name": "Start-> Delete Collection Namespace Secret",
+              "sourceStep": "/api/3/workflow_steps/c903d9ba-8731-48b6-b29f-70ae09a25e0f",
+              "targetStep": "/api/3/workflow_steps/d5ee00f2-e881-4f05-96e1-4e66b4d06205"
+            }
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "uuid": "775e7b94-9133-4e98-93c9-4c41fb7fd830",
+          "collection": "/api/3/workflow_collections/fa253cab-0d45-4bd5-b966-52dae1a1843c",
+          "triggerLimit": null,
+          "description": "Deletes a secret present in a namespace",
+          "name": "Delete Namespace Secret",
+          "tag": "#Kubernetes",
+          "recordTags": [
+            "Kubernetes",
+            "kubernetes"
+          ],
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "parameters": [],
+          "synchronous": false,
+          "triggerStep": "/api/3/workflow_steps/e73ee6a6-c44c-44a8-a3b0-18191afc7a1a",
+          "steps": [
+            {
+              "uuid": "e73ee6a6-c44c-44a8-a3b0-18191afc7a1a",
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "route": "36f537f8-b090-442b-abab-99c592081bef",
+                "title": "Kubernetes: Delete Namespace Secret",
+                "resources": [
+                  "alerts"
+                ],
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "records": "{{vars.input.records[0]}}"
+                  }
+                },
+                "singleRecordExecution": false,
+                "noRecordExecution": true,
+                "executeButtonText": "Execute"
+              },
+              "left": "20",
+              "top": "20",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a"
+            },
+            {
+              "uuid": "aa669bdb-4119-49d0-b84c-5b556659fc6b",
+              "@type": "WorkflowStep",
+              "name": "Delete Namespace Secret",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "name": "Kubernetes",
+                "config": "''",
+                "params": [],
+                "version": "1.0.0",
+                "connector": "kubernetes",
+                "operation": "delete_namespaced_secret",
+                "operationTitle": "Delete Namespace Secret",
+                "step_variables": {
+                  "output_data": "{{vars.result}}"
+                }
+              },
+              "left": "188",
+              "top": "120",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671"
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "uuid": "f1fc95f6-77be-40ea-a911-92b7aefefd6b",
+              "label": null,
+              "isExecuted": false,
+              "name": "Start-> Delete Namespace Secret",
+              "sourceStep": "/api/3/workflow_steps/e73ee6a6-c44c-44a8-a3b0-18191afc7a1a",
+              "targetStep": "/api/3/workflow_steps/aa669bdb-4119-49d0-b84c-5b556659fc6b"
+            }
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "uuid": "5a671367-b2e3-4066-b675-7ed72fdc2b61",
+          "collection": "/api/3/workflow_collections/fa253cab-0d45-4bd5-b966-52dae1a1843c",
+          "triggerLimit": null,
+          "description": "Retrieves secrets present in all namespace",
+          "name": "List Secret For All Namespaces",
+          "tag": "#Kubernetes",
+          "recordTags": [
+            "Kubernetes",
+            "kubernetes"
+          ],
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "parameters": [],
+          "synchronous": false,
+          "triggerStep": "/api/3/workflow_steps/d926ba53-3919-465a-afcf-7a787c9959f5",
+          "steps": [
+            {
+              "uuid": "d926ba53-3919-465a-afcf-7a787c9959f5",
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "route": "ee4d215f-2e62-4ad3-8569-026645b725aa",
+                "title": "Kubernetes: List Secret For All Namespaces",
+                "resources": [
+                  "alerts"
+                ],
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "records": "{{vars.input.records[0]}}"
+                  }
+                },
+                "singleRecordExecution": false,
+                "noRecordExecution": true,
+                "executeButtonText": "Execute"
+              },
+              "left": "20",
+              "top": "20",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a"
+            },
+            {
+              "uuid": "14200b9a-acb2-4b30-9a10-c6b0dcb37d41",
+              "@type": "WorkflowStep",
+              "name": "List Secret For All Namespaces",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "name": "Kubernetes",
+                "config": "''",
+                "params": [],
+                "version": "1.0.0",
+                "connector": "kubernetes",
+                "operation": "list_secret_for_all_namespaces",
+                "operationTitle": "List Secret For All Namespaces",
+                "step_variables": {
+                  "output_data": "{{vars.result}}"
+                }
+              },
+              "left": "188",
+              "top": "120",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671"
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "uuid": "d33e2b27-cf1c-47e2-8728-d13287db9475",
+              "label": null,
+              "isExecuted": false,
+              "name": "Start-> List Secret For All Namespaces",
+              "sourceStep": "/api/3/workflow_steps/d926ba53-3919-465a-afcf-7a787c9959f5",
+              "targetStep": "/api/3/workflow_steps/14200b9a-acb2-4b30-9a10-c6b0dcb37d41"
+            }
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "uuid": "49e3b703-b2ef-43c5-b67c-5cb4dc164261",
+          "collection": "/api/3/workflow_collections/fa253cab-0d45-4bd5-b966-52dae1a1843c",
+          "triggerLimit": null,
+          "description": "Deletes all configmaps present in a namespace",
+          "name": "Delete Collection Namespace ConfigMap",
+          "tag": "#Kubernetes",
+          "recordTags": [
+            "Kubernetes",
+            "kubernetes"
+          ],
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "parameters": [],
+          "synchronous": false,
+          "triggerStep": "/api/3/workflow_steps/b53e09e9-e742-4373-9eb1-ac6c697e6e92",
+          "steps": [
+            {
+              "uuid": "b53e09e9-e742-4373-9eb1-ac6c697e6e92",
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "route": "fedfbecd-c633-4bec-969a-f5cd23999e17",
+                "title": "Kubernetes: Delete Collection Namespace ConfigMap",
+                "resources": [
+                  "alerts"
+                ],
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "records": "{{vars.input.records[0]}}"
+                  }
+                },
+                "singleRecordExecution": false,
+                "noRecordExecution": true,
+                "executeButtonText": "Execute"
+              },
+              "left": "20",
+              "top": "20",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a"
+            },
+            {
+              "uuid": "7ac53f38-273a-49bb-a6e8-c09406f0f14b",
+              "@type": "WorkflowStep",
+              "name": "Delete Collection Namespace ConfigMap",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "name": "Kubernetes",
+                "config": "''",
+                "params": [],
+                "version": "1.0.0",
+                "connector": "kubernetes",
+                "operation": "delete_collection_namespaced_config_map",
+                "operationTitle": "Delete Collection Namespace ConfigMap",
+                "step_variables": {
+                  "output_data": "{{vars.result}}"
+                }
+              },
+              "left": "188",
+              "top": "120",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671"
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "uuid": "61829ab6-f19f-4b02-91ef-9a253e62a73c",
+              "label": null,
+              "isExecuted": false,
+              "name": "Start-> Delete Collection Namespace ConfigMap",
+              "sourceStep": "/api/3/workflow_steps/b53e09e9-e742-4373-9eb1-ac6c697e6e92",
+              "targetStep": "/api/3/workflow_steps/7ac53f38-273a-49bb-a6e8-c09406f0f14b"
+            }
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "uuid": "ee802fda-fdc8-49a4-83bc-f703b1ecca0e",
+          "collection": "/api/3/workflow_collections/fa253cab-0d45-4bd5-b966-52dae1a1843c",
+          "triggerLimit": null,
+          "description": "Deletes a configmap present in a namespace",
+          "name": "Delete Namespace ConfigMaps",
+          "tag": "#Kubernetes",
+          "recordTags": [
+            "Kubernetes",
+            "kubernetes"
+          ],
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "parameters": [],
+          "synchronous": false,
+          "triggerStep": "/api/3/workflow_steps/816141f5-ff3c-4fbc-abb6-9e3928a73195",
+          "steps": [
+            {
+              "uuid": "816141f5-ff3c-4fbc-abb6-9e3928a73195",
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "route": "3ec04558-fa07-494b-94c5-98ce96e74607",
+                "title": "Kubernetes: Delete Namespace ConfigMaps",
+                "resources": [
+                  "alerts"
+                ],
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "records": "{{vars.input.records[0]}}"
+                  }
+                },
+                "singleRecordExecution": false,
+                "noRecordExecution": true,
+                "executeButtonText": "Execute"
+              },
+              "left": "20",
+              "top": "20",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a"
+            },
+            {
+              "uuid": "5bd4897a-5c96-433a-ba9b-a1a251cc2d2f",
+              "@type": "WorkflowStep",
+              "name": "Delete Namespace ConfigMaps",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "name": "Kubernetes",
+                "config": "''",
+                "params": [],
+                "version": "1.0.0",
+                "connector": "kubernetes",
+                "operation": "delete_namespaced_config_map",
+                "operationTitle": "Delete Namespace ConfigMaps",
+                "step_variables": {
+                  "output_data": "{{vars.result}}"
+                }
+              },
+              "left": "188",
+              "top": "120",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671"
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "uuid": "ae31b749-94b3-4248-88f7-42fd643d7642",
+              "label": null,
+              "isExecuted": false,
+              "name": "Start-> Delete Namespace ConfigMaps",
+              "sourceStep": "/api/3/workflow_steps/816141f5-ff3c-4fbc-abb6-9e3928a73195",
+              "targetStep": "/api/3/workflow_steps/5bd4897a-5c96-433a-ba9b-a1a251cc2d2f"
+            }
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "uuid": "dd02bb1d-4176-4aff-8301-5f09db282121",
+          "collection": "/api/3/workflow_collections/fa253cab-0d45-4bd5-b966-52dae1a1843c",
+          "triggerLimit": null,
+          "description": "Retrieves configmap present in all namespace",
+          "name": "Get ConfigMap For All Namespaces",
+          "tag": "#Kubernetes",
+          "recordTags": [
+            "Kubernetes",
+            "kubernetes"
+          ],
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "parameters": [],
+          "synchronous": false,
+          "triggerStep": "/api/3/workflow_steps/842b953d-19e8-4336-85b7-1d1c11449d26",
+          "steps": [
+            {
+              "uuid": "842b953d-19e8-4336-85b7-1d1c11449d26",
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "route": "c99430f9-9ab5-4053-814b-c4d5f7807d7e",
+                "title": "Kubernetes: Get ConfigMap For All Namespaces",
+                "resources": [
+                  "alerts"
+                ],
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "records": "{{vars.input.records[0]}}"
+                  }
+                },
+                "singleRecordExecution": false,
+                "noRecordExecution": true,
+                "executeButtonText": "Execute"
+              },
+              "left": "20",
+              "top": "20",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a"
+            },
+            {
+              "uuid": "e5ff4afb-d81d-43f6-ab63-8b6628def2e7",
+              "@type": "WorkflowStep",
+              "name": "Get ConfigMap For All Namespaces",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "name": "Kubernetes",
+                "config": "''",
+                "params": [],
+                "version": "1.0.0",
+                "connector": "kubernetes",
+                "operation": "list_config_map_for_all_namespaces",
+                "operationTitle": "Get ConfigMap For All Namespaces",
+                "step_variables": {
+                  "output_data": "{{vars.result}}"
+                }
+              },
+              "left": "188",
+              "top": "120",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671"
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "uuid": "f7f4015f-425a-4d53-8293-83dcfb3e9622",
+              "label": null,
+              "isExecuted": false,
+              "name": "Start-> Get ConfigMap For All Namespaces",
+              "sourceStep": "/api/3/workflow_steps/842b953d-19e8-4336-85b7-1d1c11449d26",
+              "targetStep": "/api/3/workflow_steps/e5ff4afb-d81d-43f6-ab63-8b6628def2e7"
+            }
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "uuid": "6fffb66f-28c3-4f1d-baff-cffff7ce22b1",
+          "collection": "/api/3/workflow_collections/fa253cab-0d45-4bd5-b966-52dae1a1843c",
+          "triggerLimit": null,
+          "description": "Retrieves events of all namespace",
+          "name": "Get Events For All Namespaces",
+          "tag": "#Kubernetes",
+          "recordTags": [
+            "Kubernetes",
+            "kubernetes"
+          ],
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "parameters": [],
+          "synchronous": false,
+          "triggerStep": "/api/3/workflow_steps/5c85f0a3-3113-4bfe-8c16-64e3a3a42e33",
+          "steps": [
+            {
+              "uuid": "5c85f0a3-3113-4bfe-8c16-64e3a3a42e33",
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "route": "4b5d7d99-b087-4b6b-a07f-bedcced4f79e",
+                "title": "Kubernetes: Get Events For All Namespaces",
+                "resources": [
+                  "alerts"
+                ],
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "records": "{{vars.input.records[0]}}"
+                  }
+                },
+                "singleRecordExecution": false,
+                "noRecordExecution": true,
+                "executeButtonText": "Execute"
+              },
+              "left": "20",
+              "top": "20",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a"
+            },
+            {
+              "uuid": "05668ad6-7ed7-4a50-96ae-f6aec867c17e",
+              "@type": "WorkflowStep",
+              "name": "Get Events For All Namespaces",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "name": "Kubernetes",
+                "config": "''",
+                "params": [],
+                "version": "1.0.0",
+                "connector": "kubernetes",
+                "operation": "list_event_for_all_namespaces",
+                "operationTitle": "Get Events For All Namespaces",
+                "step_variables": {
+                  "output_data": "{{vars.result}}"
+                }
+              },
+              "left": "188",
+              "top": "120",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671"
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "uuid": "e68f5712-b99f-422d-94ef-a3a33e931fdd",
+              "label": null,
+              "isExecuted": false,
+              "name": "Start-> Get Events For All Namespaces",
+              "sourceStep": "/api/3/workflow_steps/5c85f0a3-3113-4bfe-8c16-64e3a3a42e33",
+              "targetStep": "/api/3/workflow_steps/05668ad6-7ed7-4a50-96ae-f6aec867c17e"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
