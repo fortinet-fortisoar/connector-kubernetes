@@ -4,7 +4,7 @@
   "version": "1.0.0",
   "description": "Kubernetes, also known as K8s, is an open-source system for automating deployment, scaling, and management of containerized applications.",
   "publisher": "Fortinet",
-  "cs_approved": true,
+  "cs_approved": false,
   "cs_compatible": true,
   "category": "Container Services",
   "icon_small_name": "small.png",
