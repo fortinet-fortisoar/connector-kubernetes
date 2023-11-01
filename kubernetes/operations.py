@@ -223,16 +223,16 @@ def _check_health(config, connector_info):
 
 operations = {
     'apply_yml_file': apply_yml_file,
-    'list_namespaced_pod': list_namespaced_pod,
+    'list_namespace_pod': list_namespaced_pod,
     'list_pod_for_all_namespaces': list_pod_for_all_namespaces,
     'get_pod_logs': get_pod_logs,
-    'delete_namespaced_secret': delete_namespaced_secret,
-    'delete_namespaced_pod': delete_namespaced_pod,
-    'delete_collection_namespaced_pod': delete_collection_namespaced_pod,
-    'delete_collection_namespaced_secret': delete_collection_namespaced_secret,
+    'delete_namespace_secret': delete_namespaced_secret,
+    'delete_namespace_pod': delete_namespaced_pod,
+    'delete_collection_namespace_pod': delete_collection_namespaced_pod,
+    'delete_collection_namespace_secret': delete_collection_namespaced_secret,
     'list_secret_for_all_namespaces': list_secret_for_all_namespaces,
-    'delete_collection_namespaced_config_map': delete_collection_namespaced_config_map,
-    'delete_namespaced_config_map': delete_namespaced_config_map,
+    'delete_collection_namespace_config_map': delete_collection_namespaced_config_map,
+    'delete_namespace_config_map': delete_namespaced_config_map,
     'list_config_map_for_all_namespaces': list_config_map_for_all_namespaces,
     'list_event_for_all_namespaces': list_event_for_all_namespaces
 }
