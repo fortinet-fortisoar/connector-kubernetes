@@ -29,8 +29,8 @@
         "editable": true,
         "visible": true,
         "required": true,
-        "tooltip": "Specify the token which you have generated for your service account",
-        "description": "Specify the token which you have generated for your service account"
+        "tooltip": "Specify the token which you have generated for your service account.",
+        "description": "Specify the token which you have generated for your service account."
       },
       {
         "name": "verify_ssl",
@@ -40,7 +40,7 @@
         "visible": true,
         "required": false,
         "value": true,
-        "description": "Specifies whether the SSL certificate for the server is to be verified. \nBy default, this option is set to True.  "
+        "description": "Specifies whether the SSL certificate for the server is to be verified. \nBy default, this option is set to True."
       }
     ]
   },
@@ -49,7 +49,7 @@
       "operation": "apply_yml_file",
       "title": "Apply YAML File",
       "annotation": "apply_yml_file",
-      "description": "Deploys the manifest file in your K8s cluster",
+      "description": "Deploys the manifest file in your K8s cluster.",
       "category": "investigation",
       "visible": true,
       "enabled": true,
@@ -71,9 +71,9 @@
       }
     },
     {
-      "operation": "list_namespaced_pod",
+      "operation": "list_namespace_pod",
       "title": "Get Namespace Pods List",
-      "annotation": "list_namespaced_pod",
+      "annotation": "list_namespace_pod",
       "description": "Retrieves all pods present in a namespace.",
       "category": "investigation",
       "visible": true,
@@ -87,7 +87,7 @@
           "visible": true,
           "required": true,
           "tooltip": "Specify the namespace whose pods you want to retrieve",
-          "description": "Specify the namespace whose pods you want to retrieve"
+          "description": "Specify the namespace whose pods you want to retrieve."
         }
       ],
       "output_schema": {
@@ -700,7 +700,7 @@
       "operation": "get_pod_logs",
       "title": "Get Pod logs",
       "annotation": "get_pod_logs",
-      "description": "Retrieves the logs of a pod based on the namespace and pod name specified",
+      "description": "Retrieves the logs of a pod based on the namespace and pod name specified.",
       "category": "investigation",
       "visible": true,
       "enabled": true,
@@ -713,7 +713,7 @@
           "visible": true,
           "required": true,
           "tooltip": "Specify the Pod name whose logs to retrieve",
-          "description": "Specify the Pod name whose logs you want to retrieve"
+          "description": "Specify the Pod name whose logs you want to retrieve."
         },
         {
           "name": "namespace",
@@ -723,7 +723,7 @@
           "visible": true,
           "required": true,
           "tooltip": "Specify the namespace name where the pod exists",
-          "description": "Specify the namespace name where the pod exists"
+          "description": "Specify the namespace name where the pod exists."
         }
       ],
       "output_schema": {
@@ -731,10 +731,10 @@
       }
     },
     {
-      "operation": "delete_namespaced_pod",
-      "title": "Delete Namespace Pods",
-      "annotation": "delete_namespaced_pod",
-      "description": "Deletes a pod present in a namespace",
+      "operation": "delete_namespace_pod",
+      "title": "Delete Namespace Pod",
+      "annotation": "delete_namespace_pod",
+      "description": "Delete a pod present in a namespace.",
       "category": "investigation",
       "visible": true,
       "enabled": true,
@@ -747,7 +747,7 @@
           "visible": true,
           "required": true,
           "tooltip": "Specify the Pod name which you want to delete",
-          "description": "Specify the Pod name which you want to delete"
+          "description": "Specify the Pod name which you want to delete."
         },
         {
           "name": "namespace",
@@ -757,7 +757,7 @@
           "visible": true,
           "required": true,
           "tooltip": "Specify the namespace name where the pod exists",
-          "description": "Specify the namespace name where the pod exists"
+          "description": "Specify the namespace name where the pod exists."
         }
       ],
       "output_schema": {
@@ -1018,10 +1018,10 @@
       }
     },
     {
-      "operation": "delete_collection_namespaced_pod",
+      "operation": "delete_collection_namespace_pod",
       "title": "Delete Collection Namespace Pods",
-      "annotation": "delete_collection_namespaced_pod",
-      "description": "Deletes all pods present in a namespace",
+      "annotation": "delete_collection_namespace_pod",
+      "description": "Delete all pods present in a namespace.",
       "category": "investigation",
       "visible": true,
       "enabled": true,
@@ -1034,7 +1034,7 @@
           "visible": true,
           "required": true,
           "tooltip": "Specify the namespace name from which you want to delete the pods",
-          "description": "Specify the namespace name from which you want to delete the pods"
+          "description": "Specify the namespace name from which you want to delete the pods."
         }
       ],
       "output_schema": {
@@ -1054,10 +1054,10 @@
       }
     },
     {
-      "operation": "delete_collection_namespaced_secret",
+      "operation": "delete_collection_namespace_secret",
       "title": "Delete Collection Namespace Secret",
-      "annotation": "delete_collection_namespaced_secret",
-      "description": "Deletes all secrets present in a namespace",
+      "annotation": "delete_collection_namespace_secret",
+      "description": "Delete all secrets present in a namespace.",
       "category": "investigation",
       "visible": true,
       "enabled": true,
@@ -1070,7 +1070,7 @@
           "visible": true,
           "required": true,
           "tooltip": "Specify the namespace name from where to delete all secrets",
-          "description": "Specify the namespace name from where to delete all secret"
+          "description": "Specify the namespace name from where to delete all secret."
         }
       ],
       "output_schema": {
@@ -1090,10 +1090,10 @@
       }
     },
     {
-      "operation": "delete_namespaced_secret",
+      "operation": "delete_namespace_secret",
       "title": "Delete Namespace Secret",
-      "annotation": "delete_namespaced_secret",
-      "description": "Deletes a secret present in a namespace",
+      "annotation": "delete_namespace_secret",
+      "description": "Delete a secret present in a namespace.",
       "category": "investigation",
       "visible": true,
       "enabled": true,
@@ -1106,7 +1106,7 @@
           "visible": true,
           "required": true,
           "tooltip": "Specify the Secret name which you want to delete",
-          "description": "Specify the Secret name which you want to delete"
+          "description": "Specify the Secret name which you want to delete."
         },
         {
           "name": "namespace",
@@ -1116,7 +1116,7 @@
           "visible": true,
           "required": true,
           "tooltip": "Specify the namespace name from where to delete the secret",
-          "description": "Specify the namespace name from where to delete the secret"
+          "description": "Specify the namespace name from where to delete the secret."
         }
       ],
       "output_schema": {
@@ -1146,7 +1146,7 @@
       "operation": "list_secret_for_all_namespaces",
       "title": "List Secret For All Namespaces",
       "annotation": "list_secret_for_all_namespaces",
-      "description": "Retrieves secrets present in all namespace",
+      "description": "Retrieves secrets present in all namespace.",
       "category": "investigation",
       "visible": true,
       "enabled": true,
@@ -1220,10 +1220,10 @@
       }
     },
     {
-      "operation": "delete_collection_namespaced_config_map",
+      "operation": "delete_collection_namespace_config_map",
       "title": "Delete Collection Namespace ConfigMap",
-      "annotation": "delete_collection_namespaced_config_map",
-      "description": "Deletes all configmaps present in a namespace",
+      "annotation": "delete_collection_namespace_config_map",
+      "description": "Delete all configmaps present in a namespace.",
       "category": "investigation",
       "visible": true,
       "enabled": true,
@@ -1236,7 +1236,7 @@
           "visible": true,
           "required": true,
           "tooltip": "Specify the namespace name from where to delete all the configmaps",
-          "description": "Specify the namespace name from where to delete all the configmaps"
+          "description": "Specify the namespace name from where you want to delete all the configmaps."
         }
       ],
       "output_schema": {
@@ -1256,10 +1256,10 @@
       }
     },
     {
-      "operation": "delete_namespaced_config_map",
+      "operation": "delete_namespace_config_map",
       "title": "Delete Namespace ConfigMaps",
-      "annotation": "delete_namespaced_config_map",
-      "description": "Deletes a configmap present in a namespace",
+      "annotation": "delete_namespace_config_map",
+      "description": "Delete a configmap present in a namespace.",
       "category": "investigation",
       "visible": true,
       "enabled": true,
@@ -1272,7 +1272,7 @@
           "visible": true,
           "required": true,
           "tooltip": "Specify the ConfigMap name which you want to delete",
-          "description": "Specify the ConfigMap name which you want to delete"
+          "description": "Specify the ConfigMap name which you want to delete."
         },
         {
           "name": "namespace",
@@ -1281,8 +1281,8 @@
           "editable": true,
           "visible": true,
           "required": true,
-          "tooltip": "Specify the namespace name from where to delete the configmap",
-          "description": "Specify the namespace name from where to delete the configmap"
+          "tooltip": "Specify the namespace name from where you want to delete the configmap",
+          "description": "Specify the namespace name from where you want to delete the configmap."
         }
       ],
       "output_schema": {
@@ -1312,7 +1312,7 @@
       "operation": "list_config_map_for_all_namespaces",
       "title": "Get ConfigMap For All Namespaces",
       "annotation": "list_config_map_for_all_namespaces",
-      "description": "Retrieves configmap present in all namespace",
+      "description": "Retrieves configmap present in all namespace.",
       "category": "investigation",
       "visible": true,
       "enabled": true,
@@ -1383,7 +1383,7 @@
       "operation": "list_event_for_all_namespaces",
       "title": "Get Events For All Namespaces",
       "annotation": "list_event_for_all_namespaces",
-      "description": "Retrieves events of all namespace",
+      "description": "Retrieves events of all namespace.",
       "category": "investigation",
       "visible": true,
       "enabled": true,

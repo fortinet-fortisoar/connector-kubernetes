@@ -6,10 +6,6 @@ Kubernetes, also known as K8s, is an open-source system for automating deploymen
 
 Connector Version: 1.0.0
 
-FortiSOAR&trade; Version Tested on: 7.4.1-3167
-
-Kubernetes Version Tested on: v1
-
 Authored By: Fortinet
 
 Certified: No
@@ -30,26 +26,26 @@ For the procedure to configure a connector, click [here](https://docs.fortinet.c
 <p>In FortiSOAR&trade;, on the Connectors page, click the <strong>Kubernetes</strong> connector row (if you are in the <strong>Grid</strong> view on the Connectors page) and in the <strong>Configurations</strong> tab enter the required configuration details:</p>
 <table border=1><thead><tr><th>Parameter</th><th>Description</th></tr></thead><tbody><tr><td>Server URL</td><td>Specify the server URL on which K8s is hosted to connect and perform the automated operations.
 </td>
-</tr><tr><td>Token</td><td>Specify the token which you have generated for your service account
+</tr><tr><td>Token</td><td>Specify the token which you have generated for your service account. For more information refer <a>https://kubernetes.io/docs/reference/kubernetes-api/authentication-resources/</a>.
 </td>
 </tr><tr><td>Verify SSL</td><td>Specifies whether the SSL certificate for the server is to be verified or not. <br/>By default, this option is set to True.</td></tr>
 </tbody></table>
 
 ## Actions supported by the connector
 The following automated operations can be included in playbooks and you can also use the annotations to access operations:
-<table border=1><thead><tr><th>Function</th><th>Description</th><th>Annotation and Category</th></tr></thead><tbody><tr><td>Apply YAML File</td><td>Deploys the manifest file in your K8s cluster</td><td>apply_yml_file <br/>Investigation</td></tr>
-<tr><td>Get Namespace Pods List</td><td>Retrieves all pods present in a namespace.</td><td>list_namespaced_pod <br/>Investigation</td></tr>
+<table border=1><thead><tr><th>Function</th><th>Description</th><th>Annotation and Category</th></tr></thead><tbody><tr><td>Apply YAML File</td><td>Deploys the manifest file in your K8s cluster.</td><td>apply_yml_file <br/>Investigation</td></tr>
+<tr><td>Get Namespace Pods List</td><td>Retrieves all pods present in a namespace.</td><td>list_namespace_pod <br/>Investigation</td></tr>
 <tr><td>Get Pod For All Namespaces</td><td>Retrieves all the pods from all namespaces.</td><td>list_pod_for_all_namespaces <br/>Investigation</td></tr>
-<tr><td>Get Pod logs</td><td>Retrieves the logs of a pod based on the namespace and pod name specified</td><td>get_pod_logs <br/>Investigation</td></tr>
-<tr><td>Delete Namespace Pods</td><td>Deletes a pod present in a namespace</td><td>delete_namespaced_pod <br/>Investigation</td></tr>
-<tr><td>Delete Collection Namespace Pods</td><td>Deletes all pods present in a namespace</td><td>delete_collection_namespaced_pod <br/>Investigation</td></tr>
-<tr><td>Delete Collection Namespace Secret</td><td>Deletes all secrets present in a namespace</td><td>delete_collection_namespaced_secret <br/>Investigation</td></tr>
-<tr><td>Delete Namespace Secret</td><td>Deletes a secret present in a namespace</td><td>delete_namespaced_secret <br/>Investigation</td></tr>
-<tr><td>List Secret For All Namespaces</td><td>Retrieves secrets present in all namespace</td><td>list_secret_for_all_namespaces <br/>Investigation</td></tr>
-<tr><td>Delete Collection Namespace ConfigMap</td><td>Deletes all configmaps present in a namespace</td><td>delete_collection_namespaced_config_map <br/>Investigation</td></tr>
-<tr><td>Delete Namespace ConfigMaps</td><td>Deletes a configmap present in a namespace</td><td>delete_namespaced_config_map <br/>Investigation</td></tr>
-<tr><td>Get ConfigMap For All Namespaces</td><td>Retrieves configmap present in all namespace</td><td>list_config_map_for_all_namespaces <br/>Investigation</td></tr>
-<tr><td>Get Events For All Namespaces</td><td>Retrieves events of all namespace</td><td>list_event_for_all_namespaces <br/>Investigation</td></tr>
+<tr><td>Get Pod logs</td><td>Retrieves the logs of a pod based on the namespace and pod name specified.</td><td>get_pod_logs <br/>Investigation</td></tr>
+<tr><td>Delete Namespace Pods</td><td>Delete a pod present in a namespace.</td><td>delete_namespace_pod <br/>Investigation</td></tr>
+<tr><td>Delete Collection Namespace Pods</td><td>Delete all pods present in a namespace.</td><td>delete_collection_namespace_pod <br/>Investigation</td></tr>
+<tr><td>Delete Collection Namespace Secret</td><td>Delete all secrets present in a namespace.</td><td>delete_collection_namespace_secret <br/>Investigation</td></tr>
+<tr><td>Delete Namespace Secret</td><td>Delete a secret present in a namespace.</td><td>delete_namespace_secret <br/>Investigation</td></tr>
+<tr><td>List Secret For All Namespaces</td><td>Retrieves secrets present in all namespace.</td><td>list_secret_for_all_namespaces <br/>Investigation</td></tr>
+<tr><td>Delete Collection Namespace ConfigMap</td><td>Delete all configmaps present in a namespace.</td><td>delete_collection_namespace_config_map <br/>Investigation</td></tr>
+<tr><td>Delete Namespace ConfigMaps</td><td>Delete a configmap present in a namespace.</td><td>delete_namespace_config_map <br/>Investigation</td></tr>
+<tr><td>Get ConfigMap For All Namespaces</td><td>Retrieves configmap present in all namespace.</td><td>list_config_map_for_all_namespaces <br/>Investigation</td></tr>
+<tr><td>Get Events For All Namespaces</td><td>Retrieves events of all namespace.</td><td>list_event_for_all_namespaces <br/>Investigation</td></tr>
 </tbody></table>
 
 ### operation: Apply YAML File
@@ -65,7 +61,7 @@ The output contains the following populated JSON schema:
 }</pre>
 ### operation: Get Namespace Pods List
 #### Input parameters
-<table border=1><thead><tr><th>Parameter</th><th>Description</th></tr></thead><tbody><tr><td>Namespace</td><td>Specify the namespace whose pods you want to retrieve
+<table border=1><thead><tr><th>Parameter</th><th>Description</th></tr></thead><tbody><tr><td>Namespace</td><td>Specify the namespace whose pods you want to retrieve.
 </td></tr></tbody></table>
 
 #### Output
@@ -672,10 +668,10 @@ The output contains the following populated JSON schema:
         "self_link": ""
     }
 }</pre>
-### operation: Get Pod logs
+### operation: Get Pod Logs
 #### Input parameters
-<table border=1><thead><tr><th>Parameter</th><th>Description</th></tr></thead><tbody><tr><td>Pod Name</td><td>Specify the Pod name whose logs you want to retrieve
-</td></tr><tr><td>Namespace</td><td>Specify the namespace name where the pod exists
+<table border=1><thead><tr><th>Parameter</th><th>Description</th></tr></thead><tbody><tr><td>Pod Name</td><td>Specify the Pod name whose logs you want to retrieve.
+</td></tr><tr><td>Namespace</td><td>Specify the namespace name where the pod exists.
 </td></tr></tbody></table>
 #### Output
 The output contains the following populated JSON schema:
@@ -685,8 +681,8 @@ The output contains the following populated JSON schema:
 }</pre>
 ### operation: Delete Namespace Pods
 #### Input parameters
-<table border=1><thead><tr><th>Parameter</th><th>Description</th></tr></thead><tbody><tr><td>Pod Name</td><td>Specify the Pod name which you want to delete
-</td></tr><tr><td>Namespace</td><td>Specify the namespace name where the pod exists
+<table border=1><thead><tr><th>Parameter</th><th>Description</th></tr></thead><tbody><tr><td>Pod Name</td><td>Specify the Pod name which you want to delete.
+</td></tr><tr><td>Namespace</td><td>Specify the namespace name where the pod exists.
 </td></tr></tbody></table>
 
 #### Output
@@ -950,7 +946,7 @@ The output contains the following populated JSON schema:
 }</pre>
 ### operation: Delete Collection Namespace Pods
 #### Input parameters
-<table border=1><thead><tr><th>Parameter</th><th>Description</th></tr></thead><tbody><tr><td>Namespace</td><td>Specify the namespace name from which you want to delete the pods
+<table border=1><thead><tr><th>Parameter</th><th>Description</th></tr></thead><tbody><tr><td>Namespace</td><td>Specify the namespace name from which you want to delete the pods.
 </td></tr></tbody></table>
 
 #### Output
@@ -973,7 +969,7 @@ The output contains the following populated JSON schema:
 }</pre>
 ### operation: Delete Collection Namespace Secret
 #### Input parameters
-<table border=1><thead><tr><th>Parameter</th><th>Description</th></tr></thead><tbody><tr><td>Namespace</td><td>Specify the namespace name from where to delete all secret
+<table border=1><thead><tr><th>Parameter</th><th>Description</th></tr></thead><tbody><tr><td>Namespace</td><td>Specify the namespace name from where to delete all secret.
 </td></tr></tbody></table>
 
 #### Output
@@ -996,8 +992,8 @@ The output contains the following populated JSON schema:
 }</pre>
 ### operation: Delete Namespace Secret
 #### Input parameters
-<table border=1><thead><tr><th>Parameter</th><th>Description</th></tr></thead><tbody><tr><td>Secret Name</td><td>Specify the Secret name which you want to delete
-</td></tr><tr><td>Namespace</td><td>Specify the namespace name from where to delete the secret
+<table border=1><thead><tr><th>Parameter</th><th>Description</th></tr></thead><tbody><tr><td>Secret Name</td><td>Specify the Secret name which you want to delete.
+</td></tr><tr><td>Namespace</td><td>Specify the namespace name from where to delete the secret.
 </td></tr></tbody></table>
 
 #### Output
@@ -1100,7 +1096,7 @@ The output contains the following populated JSON schema:
 }</pre>
 ### operation: Delete Collection Namespace ConfigMap
 #### Input parameters
-<table border=1><thead><tr><th>Parameter</th><th>Description</th></tr></thead><tbody><tr><td>Namespace</td><td>Specify the namespace name from where to delete all the configmaps
+<table border=1><thead><tr><th>Parameter</th><th>Description</th></tr></thead><tbody><tr><td>Namespace</td><td>Specify the namespace name from where you want to delete all the configmaps.
 </td></tr></tbody></table>
 
 #### Output
@@ -1123,8 +1119,8 @@ The output contains the following populated JSON schema:
 }</pre>
 ### operation: Delete Namespace ConfigMaps
 #### Input parameters
-<table border=1><thead><tr><th>Parameter</th><th>Description</th></tr></thead><tbody><tr><td>ConfigMap Name</td><td>Specify the ConfigMap name which you want to delete
-</td></tr><tr><td>Namespace</td><td>Specify the namespace name from where to delete the configmap
+<table border=1><thead><tr><th>Parameter</th><th>Description</th></tr></thead><tbody><tr><td>ConfigMap Name</td><td>Specify the ConfigMap name which you want to delete.
+</td></tr><tr><td>Namespace</td><td>Specify the namespace name from where you want to delete the configmaps.
 </td></tr></tbody></table>
 
 #### Output
@@ -1319,7 +1315,7 @@ The `Sample - kubernetes - 1.0.0` playbook collection comes bundled with the Kub
 - Get Events For All Namespaces
 - Get Namespace Pods List
 - Get Pod For All Namespaces
-- Get Pod logs
+- Get Pod Logs
 - List Secret For All Namespaces
 
 **Note**: If you are planning to use any of the sample playbooks in your environment, ensure that you clone those playbooks and move them to a different collection since the sample playbook collection gets deleted during connector upgrade and delete.
