@@ -36,7 +36,7 @@ The following automated operations can be included in playbooks and you can also
 <table border=1><thead><tr><th>Function</th><th>Description</th><th>Annotation and Category</th></tr></thead><tbody><tr><td>Apply YAML File</td><td>Deploys the manifest file in your K8s cluster.</td><td>apply_yml_file <br/>Investigation</td></tr>
 <tr><td>Get Namespace Pods List</td><td>Retrieves all pods present in a namespace.</td><td>list_namespace_pod <br/>Investigation</td></tr>
 <tr><td>Get Pod For All Namespaces</td><td>Retrieves all the pods from all namespaces.</td><td>list_pod_for_all_namespaces <br/>Investigation</td></tr>
-<tr><td>Get Pod logs</td><td>Retrieves the logs of a pod based on the namespace and pod name specified.</td><td>get_pod_logs <br/>Investigation</td></tr>
+<tr><td>Get Pod Logs</td><td>Retrieves the logs of a pod based on the namespace and pod name specified.</td><td>get_pod_logs <br/>Investigation</td></tr>
 <tr><td>Delete Namespace Pods</td><td>Delete a pod present in a namespace.</td><td>delete_namespace_pod <br/>Investigation</td></tr>
 <tr><td>Delete Collection Namespace Pods</td><td>Delete all pods present in a namespace.</td><td>delete_collection_namespace_pod <br/>Investigation</td></tr>
 <tr><td>Delete Collection Namespace Secret</td><td>Delete all secrets present in a namespace.</td><td>delete_collection_namespace_secret <br/>Investigation</td></tr>
